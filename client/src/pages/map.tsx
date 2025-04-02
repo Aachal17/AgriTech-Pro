@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { useDashboard } from "@/context/dashboard-context";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import type { TileLayer, Map as LeafletMap } from "leaflet";
+import type { Map as LeafletMap } from "leaflet";
 
 export default function MapPage() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -129,8 +129,12 @@ export default function MapPage() {
         
         <Card className="mb-6">
           <CardContent className="p-0">
-            <div className="relative w-full h-[calc(100vh-12rem)] min-h-[400px] rounded-lg overflow-hidden">
-              <div ref={mapRef} className="w-full h-full" />
+            <div className="relative w-full h-[calc(100vh-12rem)] min-h-[400px] rounded-lg overflow-hidden" style={{ zIndex: 0 }}>
+              <div 
+                ref={mapRef} 
+                className="w-full h-full z-0" 
+                style={{ zIndex: 0 }}
+              />
               {!isMapLoaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-slate-100 dark:bg-slate-800">
                   <div className="flex flex-col items-center">

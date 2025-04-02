@@ -14,6 +14,14 @@ interFontLink.href = "https://fonts.googleapis.com/css2?family=Inter:wght@300;40
 interFontLink.rel = "stylesheet";
 document.head.appendChild(interFontLink);
 
+// Import Leaflet CSS
+const leafletCssLink = document.createElement('link');
+leafletCssLink.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+leafletCssLink.rel = "stylesheet";
+leafletCssLink.integrity = "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
+leafletCssLink.crossOrigin = "";
+document.head.appendChild(leafletCssLink);
+
 // Set document title
 document.title = "AgriTrack Dashboard";
 
