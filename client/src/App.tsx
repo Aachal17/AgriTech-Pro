@@ -4,12 +4,14 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { DashboardProvider } from "./context/dashboard-context";
 import Home from "@/pages/home";
+import MapPage from "@/pages/map";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/map" component={MapPage} />
       <Route component={NotFound} />
     </Switch>
   );

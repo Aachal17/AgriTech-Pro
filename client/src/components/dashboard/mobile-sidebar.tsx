@@ -78,6 +78,24 @@ export function MobileSidebar({
                   href="#" 
                   onClick={(e) => {
                     e.preventDefault();
+                    setLocation("/map");
+                    onClose();
+                  }}
+                  className={`flex items-center px-3 py-2 text-sm rounded-lg mt-1 ${
+                    currentPath === "/map" 
+                      ? "bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium" 
+                      : "text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                  }`}
+                >
+                  <span className="material-icons text-sm mr-3">location_on</span>
+                  Farm Map
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
                     onClose();
                   }}
                   className="flex items-center px-3 py-2 text-sm rounded-lg text-slate-700 dark:text-slate-300 font-medium mt-1 hover:bg-slate-100 dark:hover:bg-slate-700/50"

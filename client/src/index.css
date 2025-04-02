@@ -15,19 +15,48 @@
 /* Fix for Leaflet map blue boxes and other styling */
 .leaflet-container {
   font-family: inherit;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background: transparent !important;
 }
 
-.leaflet-control-attribution {
-  display: none;
+/* Hide all unnecessary controls */
+.leaflet-control-attribution,
+.leaflet-control-zoom,
+.leaflet-control-layers {
+  display: none !important;
 }
 
-.leaflet-control-zoom {
-  display: none;
+/* Override the blue focus outline on map elements */
+.leaflet-container:focus,
+.leaflet-container *:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
+/* Fix z-index issues with overlapping elements */
 .leaflet-pane,
 .leaflet-control,
 .leaflet-top,
 .leaflet-bottom {
   z-index: 10 !important;
+}
+
+/* Remove blue highlight on tiles */
+.leaflet-tile-container img {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Fix tile loading background */
+.leaflet-tile-loaded {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Custom farm marker styling */
+.farm-marker {
+  background: transparent;
+  border: none;
 }
