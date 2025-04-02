@@ -107,35 +107,45 @@ export function getAlertStyles(type: AlertType): {
   border: string;
   icon: string;
   iconColor: string;
+  textColor: string;
+  titleColor: string;
 } {
   switch (type) {
     case "warning":
       return {
-        bg: "bg-yellow-50",
-        border: "border-yellow-200",
+        bg: "bg-yellow-100",
+        border: "border-yellow-300",
         icon: "warning",
-        iconColor: "text-yellow-500"
+        iconColor: "text-yellow-600",
+        textColor: "text-yellow-800",
+        titleColor: "text-yellow-900"
       };
     case "error":
       return {
-        bg: "bg-red-50",
-        border: "border-red-200",
+        bg: "bg-red-100",
+        border: "border-red-300",
         icon: "error",
-        iconColor: "text-red-500"
+        iconColor: "text-red-600",
+        textColor: "text-red-800",
+        titleColor: "text-red-900"
       };
     case "success":
       return {
-        bg: "bg-green-50",
-        border: "border-green-200",
+        bg: "bg-green-100",
+        border: "border-green-300",
         icon: "check_circle",
-        iconColor: "text-green-500"
+        iconColor: "text-green-600",
+        textColor: "text-green-800",
+        titleColor: "text-green-900"
       };
     default: // info
       return {
-        bg: "bg-blue-50",
-        border: "border-blue-200",
+        bg: "bg-blue-100",
+        border: "border-blue-300",
         icon: "info",
-        iconColor: "text-blue-500"
+        iconColor: "text-blue-600",
+        textColor: "text-blue-800",
+        titleColor: "text-blue-900"
       };
   }
 }

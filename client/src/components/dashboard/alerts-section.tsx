@@ -6,17 +6,17 @@ interface AlertProps {
 }
 
 function AlertItem({ alert }: AlertProps) {
-  const { bg, border, icon, iconColor } = getAlertStyles(alert.type);
+  const { bg, border, icon, iconColor, textColor, titleColor } = getAlertStyles(alert.type);
   
   return (
     <div className={`flex items-start p-3 mb-2 rounded-lg border ${bg} ${border}`}>
       <span className={`material-icons ${iconColor} mr-3`}>{icon}</span>
       <div className="flex-1">
         <div className="flex justify-between items-start">
-          <h3 className="font-semibold text-slate-800 dark:text-slate-100">{alert.title}</h3>
-          <span className="text-xs text-slate-500 dark:text-slate-400">{alert.timestamp}</span>
+          <h3 className={`font-semibold ${titleColor}`}>{alert.title}</h3>
+          <span className={`text-xs ${textColor}`}>{alert.timestamp}</span>
         </div>
-        <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">{alert.message}</p>
+        <p className={`text-sm ${textColor} mt-1`}>{alert.message}</p>
       </div>
     </div>
   );

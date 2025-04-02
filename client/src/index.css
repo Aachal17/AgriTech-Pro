@@ -11,3 +11,23 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* Fix for Leaflet map blue boxes and other styling */
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.leaflet-control-zoom {
+  display: none;
+}
+
+.leaflet-pane,
+.leaflet-control,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 10 !important;
+}
