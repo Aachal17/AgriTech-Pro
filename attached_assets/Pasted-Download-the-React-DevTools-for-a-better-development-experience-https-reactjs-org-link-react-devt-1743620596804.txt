@@ -1,0 +1,37 @@
+Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+chunk-RJSSNUVR.js?v=09c0bd82:1177 [2025-04-02T19:02:28.841Z]  @firebase/database: FIREBASE FATAL ERROR: Cannot parse Firebase url. Please use https://<YOUR FIREBASE>.firebaseio.com 
+defaultLogHandler @ chunk-RJSSNUVR.js?v=09c0bd82:1177Understand this errorAI
+firebase.ts:45 Error initializing Firebase: Error: FIREBASE FATAL ERROR: Cannot parse Firebase url. Please use https://<YOUR FIREBASE>.firebaseio.com 
+    at fatal (firebase_database.js?v=09c0bd82:196:9)
+    at parseRepoInfo (firebase_database.js?v=09c0bd82:8391:5)
+    at repoManagerDatabaseFromApp (firebase_database.js?v=09c0bd82:9461:19)
+    at Component.instanceFactory (firebase_database.js?v=09c0bd82:9614:14)
+    at Provider.getOrInitializeService (chunk-RJSSNUVR.js?v=09c0bd82:1062:33)
+    at Provider.getImmediate (chunk-RJSSNUVR.js?v=09c0bd82:928:21)
+    at getDatabase (firebase_database.js?v=09c0bd82:9559:44)
+    at initializeFirebase (firebase.ts:42:18)
+    at async setupFirebase (use-firebase-data.ts:94:44)
+initializeFirebase @ firebase.ts:45Understand this errorAI
+use-firebase-data.ts:121 Error setting up Firebase: TypeError: Cannot read properties of null (reading '_checkNotDeleted')
+    at ref (firebase_database.js?v=09c0bd82:8945:6)
+    at setupFirebase (use-firebase-data.ts:97:25)
+setupFirebase @ use-firebase-data.ts:121Understand this errorAI
+firebase.ts:59 Error updating pump status: TypeError: Cannot read properties of null (reading '_checkNotDeleted')
+    at ref (firebase_database.js?v=09c0bd82:8945:6)
+    at updatePumpStatus (firebase.ts:56:15)
+    at async handleToggle (pump-control.tsx:22:7)
+updatePumpStatus @ firebase.ts:59Understand this errorAI
+pump-control.tsx:31 Error updating pump status: TypeError: Cannot read properties of null (reading '_checkNotDeleted')
+    at ref (firebase_database.js?v=09c0bd82:8945:6)
+    at updatePumpStatus (firebase.ts:56:15)
+    at async handleToggle (pump-control.tsx:22:7)
+handleToggle @ pump-control.tsx:31Understand this errorAI
+firebase.ts:59 Error updating pump status: TypeError: Cannot read properties of null (reading '_checkNotDeleted')
+    at ref (firebase_database.js?v=09c0bd82:8945:6)
+    at updatePumpStatus (firebase.ts:56:15)
+    at async handleToggle (pump-control.tsx:22:7)
+updatePumpStatus @ firebase.ts:59Understand this errorAI
+pump-control.tsx:31 Error updating pump status: TypeError: Cannot read properties of null (reading '_checkNotDeleted')
+    at ref (firebase_database.js?v=09c0bd82:8945:6)
+    at updatePumpStatus (firebase.ts:56:15)
+    at async handleToggle (pump-control.tsx:22:7)
