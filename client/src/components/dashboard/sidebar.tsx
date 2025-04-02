@@ -62,8 +62,15 @@ export function Sidebar({ location, onToggleTheme, isDarkMode }: SidebarProps) {
             <li>
               <a 
                 href="#" 
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center px-3 py-2 text-sm rounded-lg text-slate-700 dark:text-slate-300 font-medium mt-1 hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation("/analytics");
+                }}
+                className={`flex items-center px-3 py-2 text-sm rounded-lg mt-1 ${
+                  currentPath === "/analytics" 
+                    ? "bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium" 
+                    : "text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                }`}
               >
                 <span className="material-icons text-sm mr-3">analytics</span>
                 Analytics
@@ -72,8 +79,15 @@ export function Sidebar({ location, onToggleTheme, isDarkMode }: SidebarProps) {
             <li>
               <a 
                 href="#" 
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center px-3 py-2 text-sm rounded-lg text-slate-700 dark:text-slate-300 font-medium mt-1 hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation("/devices");
+                }}
+                className={`flex items-center px-3 py-2 text-sm rounded-lg mt-1 ${
+                  currentPath === "/devices" 
+                    ? "bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium" 
+                    : "text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                }`}
               >
                 <span className="material-icons text-sm mr-3">settings_input_component</span>
                 Devices
@@ -90,8 +104,15 @@ export function Sidebar({ location, onToggleTheme, isDarkMode }: SidebarProps) {
             <li>
               <a 
                 href="#" 
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center px-3 py-2 text-sm rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation("/irrigation");
+                }}
+                className={`flex items-center px-3 py-2 text-sm rounded-lg ${
+                  currentPath === "/irrigation" 
+                    ? "bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium" 
+                    : "text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                }`}
               >
                 <span className="material-icons text-sm mr-3">water_drop</span>
                 Irrigation
@@ -100,8 +121,15 @@ export function Sidebar({ location, onToggleTheme, isDarkMode }: SidebarProps) {
             <li>
               <a 
                 href="#" 
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center px-3 py-2 text-sm rounded-lg text-slate-700 dark:text-slate-300 font-medium mt-1 hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation("/schedule");
+                }}
+                className={`flex items-center px-3 py-2 text-sm rounded-lg mt-1 ${
+                  currentPath === "/schedule" 
+                    ? "bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium" 
+                    : "text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                }`}
               >
                 <span className="material-icons text-sm mr-3">schedule</span>
                 Scheduling
@@ -118,8 +146,15 @@ export function Sidebar({ location, onToggleTheme, isDarkMode }: SidebarProps) {
             <li>
               <a 
                 href="#" 
-                onClick={(e) => e.preventDefault()}
-                className="flex items-center px-3 py-2 text-sm rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setLocation("/settings");
+                }}
+                className={`flex items-center px-3 py-2 text-sm rounded-lg ${
+                  currentPath === "/settings" 
+                    ? "bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 font-medium" 
+                    : "text-slate-700 dark:text-slate-300 font-medium hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                }`}
               >
                 <span className="material-icons text-sm mr-3">settings</span>
                 Settings
