@@ -60,7 +60,9 @@ export interface FirebaseLocation {
 export interface FirebaseSensors {
   airQuality: number;
   humidity: number;
-  pump: boolean;
+  pump1: boolean;
+  pump2: boolean;
+  pump3: boolean;
   rain: boolean;
   soilMoisture: number;
   temperature: number;

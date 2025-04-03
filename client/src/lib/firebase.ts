@@ -50,10 +50,10 @@ export async function initializeFirebase() {
 }
 
 // Function to update pump status in Firebase
-export async function updatePumpStatus(status: boolean): Promise<void> {
+export async function updatePumpStatus(pumpId: string, status: boolean): Promise<void> {
   const { database, ref, set } = await initializeFirebase();
   try {
-    await set(ref(database, 'sensors/pump'), status);
+    await set(ref(database, `sensors/${pumpId}`), status);
     return Promise.resolve();
   } catch (error) {
     console.error("Error updating pump status:", error);

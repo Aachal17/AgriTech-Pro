@@ -4,32 +4,34 @@ import { updatePumpStatus } from "@/lib/firebase";
 import { useToast } from "@/hooks/use-toast";
 
 interface PumpControlProps {
+  pumpId: 'pump1' | 'pump2' | 'pump3';
   pumpStatus: boolean;
-  onStatusChange: (status: boolean) => void;
+  onStatusChange: (pumpId: string, status: boolean) => void;
+  pumpName: string;
 }
 
-export function PumpControl({ pumpStatus, onStatusChange }: PumpControlProps) {
+export function PumpControl({ pumpId, pumpStatus, onStatusChange, pumpName }: PumpControlProps) {
   const [isUpdating, setIsUpdating] = useState(false);
   const { toast } = useToast();
 
   const handleToggle = async () => {
     if (isUpdating) return;
-    
+
     const newStatus = !pumpStatus;
     setIsUpdating(true);
-    
+
     try {
-      await updatePumpStatus(newStatus);
-      onStatusChange(newStatus);
-      
+      await updatePumpStatus(pumpId, newStatus);
+      onStatusChange(pumpId, newStatus);
+
       toast({
         title: "Pump Status Changed",
-        description: `Pump is now ${newStatus ? 'active' : 'inactive'}`,
+        description: `${pumpName} is now ${newStatus ? 'active' : 'inactive'}`,
         variant: newStatus ? "default" : "secondary",
       });
     } catch (error) {
       console.error("Error updating pump status:", error);
-      
+
       toast({
         title: "Update Failed",
         description: "Could not update pump status. Please try again.",
@@ -49,25 +51,25 @@ export function PumpControl({ pumpStatus, onStatusChange }: PumpControlProps) {
               <span className="material-icons">opacity</span>
             </span>
             <div>
-              <h3 className="text-base font-semibold text-slate-800 dark:text-white">Water Pump</h3>
+              <h3 className="text-base font-semibold text-slate-800 dark:text-white">{pumpName}</h3>
               <p className={`text-sm ${pumpStatus ? "text-green-600 dark:text-green-400" : "text-slate-500 dark:text-slate-400"}`}>
                 {pumpStatus ? "Pump is currently active" : "Pump is currently inactive"}
               </p>
             </div>
           </div>
-          
+
           <div className="w-full md:w-auto">
             <div className="flex items-center justify-between md:justify-end space-x-4">
               <button className="text-sm text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white flex items-center">
                 <span className="material-icons text-sm mr-1">history</span>
                 History
               </button>
-              
-              <label htmlFor="pump-toggle" className="flex items-center cursor-pointer">
+
+              <label htmlFor={`pump-toggle-${pumpId}`} className="flex items-center cursor-pointer">
                 <div className="relative">
                   <input 
                     type="checkbox" 
-                    id="pump-toggle" 
+                    id={`pump-toggle-${pumpId}`} 
                     className="sr-only" 
                     checked={pumpStatus}
                     onChange={handleToggle}
@@ -80,7 +82,7 @@ export function PumpControl({ pumpStatus, onStatusChange }: PumpControlProps) {
                     pumpStatus ? "translate-x-6" : ""
                   }`}></div>
                 </div>
-                <span className="ml-3 text-sm font-medium text-slate-700 dark:text-slate-300" id="pump-toggle-text">
+                <span className="ml-3 text-sm font-medium text-slate-700 dark:text-slate-300" id={`pump-toggle-${pumpId}-text`}>
                   {isUpdating ? "Updating..." : pumpStatus ? "Turn Off" : "Turn On"}
                 </span>
               </label>

@@ -133,10 +133,26 @@ export default function Dashboard() {
               </span>
             </div>
             
-            <PumpControl 
-              pumpStatus={sensors.pump} 
-              onStatusChange={updatePumpStatus}
-            />
+            <div className="space-y-4">
+              <PumpControl 
+                pumpId="pump1"
+                pumpName="Main Water Pump"
+                pumpStatus={sensors.pump1} 
+                onStatusChange={updatePumpStatus}
+              />
+              <PumpControl 
+                pumpId="pump2"
+                pumpName="Secondary Water Pump"
+                pumpStatus={sensors.pump2} 
+                onStatusChange={updatePumpStatus}
+              />
+              <PumpControl 
+                pumpId="pump3"
+                pumpName="Backup Water Pump"
+                pumpStatus={sensors.pump3} 
+                onStatusChange={updatePumpStatus}
+              />
+            </div>
           </div>
           
           {/* Alerts Section */}
