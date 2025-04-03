@@ -1,3 +1,4 @@
+
 import { createContext, useContext, ReactNode } from "react";
 import { useFirebaseData } from "@/hooks/use-firebase-data";
 import { useTheme } from "@/hooks/use-theme";
@@ -17,7 +18,7 @@ interface DashboardContextType {
   };
   alerts: Alert[];
   createAlert: (title: string, message: string, type?: Alert["type"]) => Alert;
-  updatePumpStatus: (status: boolean) => void;
+  updatePumpStatus: (pumpId: string, status: boolean) => void;
   isDarkMode: boolean;
   toggleTheme: () => void;
 }
@@ -60,7 +61,7 @@ export function DashboardProvider({ children }: { children: ReactNode }) {
 
 export function useDashboard() {
   const context = useContext(DashboardContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useDashboard must be used within a DashboardProvider");
   }
   return context;
