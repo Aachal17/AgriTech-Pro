@@ -134,14 +134,20 @@ export function useFirebaseData() {
   }, []);
 
   // Function to update pump status
-  const updatePumpStatus = (status: boolean) => {
-    setData(prev => ({
-      ...prev,
-      sensors: {
-        ...prev.sensors,
-        pump: status
-      }
-    }));
+  const updatePumpStatus = async (pumpId: string, status: boolean) => {
+    try {
+      await updatePumpStatus(pumpId, status);
+      setData(prev => ({
+        ...prev,
+        sensors: {
+          ...prev.sensors,
+          [pumpId]: status
+        }
+      }));
+    } catch (error) {
+      console.error("Failed to update pump status:", error);
+      createAlert("Error", "Failed to update pump status", "destructive");
+    }
   };
 
   return {

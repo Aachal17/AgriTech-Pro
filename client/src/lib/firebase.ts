@@ -45,7 +45,7 @@ export async function initializeFirebase() {
       console.error("Error initializing Firebase:", error);
     }
   }
-  
+
   return { firebaseApp, database, ref, onValue, set, get };
 }
 
@@ -54,6 +54,7 @@ export async function updatePumpStatus(pumpId: string, status: boolean): Promise
   const { database, ref, set } = await initializeFirebase();
   try {
     await set(ref(database, `sensors/${pumpId}`), status);
+    console.log(`Updated ${pumpId} status to ${status} in Firebase`);
     return Promise.resolve();
   } catch (error) {
     console.error("Error updating pump status:", error);
