@@ -10,8 +10,12 @@ interface PumpControlProps {
 }
 
 export function PumpControl({ pumpId, pumpName, pumpStatus = false, onStatusChange }: PumpControlProps) {
-  const handleStatusChange = (checked: boolean) => {
-    onStatusChange(pumpId, checked);
+  const handleStatusChange = async (checked: boolean) => {
+    try {
+      await onStatusChange(pumpId, checked);
+    } catch (error) {
+      console.error("Error toggling pump:", error);
+    }
   };
 
   return (
