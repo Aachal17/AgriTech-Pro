@@ -1,5 +1,6 @@
+
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Router } from "wouter";
+import { Router, Route, Switch } from "wouter";
 import { DashboardProvider } from "@/context/dashboard-context";
 import { queryClient } from "@/lib/queryClient";
 import Dashboard from "@/pages/dashboard";
@@ -10,9 +11,11 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <DashboardProvider>
         <Router>
-          <Dashboard />
-          <Toaster />
+          <Switch>
+            <Route path="/" component={Dashboard} />
+          </Switch>
         </Router>
+        <Toaster />
       </DashboardProvider>
     </QueryClientProvider>
   );

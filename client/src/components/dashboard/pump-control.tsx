@@ -9,7 +9,7 @@ interface PumpControlProps {
   onStatusChange: (pumpId: string, status: boolean) => void;
 }
 
-export function PumpControl({ pumpId, pumpName, pumpStatus, onStatusChange }: PumpControlProps) {
+export function PumpControl({ pumpId, pumpName, pumpStatus = false, onStatusChange }: PumpControlProps) {
   const handleStatusChange = (checked: boolean) => {
     onStatusChange(pumpId, checked);
   };
